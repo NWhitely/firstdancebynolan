@@ -747,22 +747,17 @@
         }
 
         .featured-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-            transition: opacity 0.3s ease;
+            height: 35px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: filter 0.3s ease, opacity 0.3s ease;
         }
 
         .featured-logo:hover {
-            opacity: 0.8;
-        }
-
-        .featured-logo span {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-size: 0.9rem;
+            filter: grayscale(0%);
+            opacity: 1;
         }
 
         /* Gallery */
@@ -1152,11 +1147,9 @@
     <section class="featured-in">
         <p>As Featured In</p>
         <div class="featured-logos fade-in">
-            <a href="#" class="featured-logo">The Knot</a>
-            <a href="#" class="featured-logo">WeddingWire</a>
-            <a href="#" class="featured-logo">Austin <span>Monthly</span></a>
-            <a href="#" class="featured-logo">Texas <span>Weddings</span></a>
-            <a href="#" class="featured-logo">Brides <span>of Austin</span></a>
+            <img src="https://www.theknot.com/tk-media/images/logo-theknot.svg" alt="The Knot" class="featured-logo">
+            <img src="https://cdn1.weddingwire.com/assets/img/logos/gen_logoHeader.svg" alt="WeddingWire" class="featured-logo">
+            <img src="https://bridesofaustin.com/wp-content/uploads/2020/01/brides-of-austin-logo.png" alt="Brides of Austin" class="featured-logo">
         </div>
     </section>
 
