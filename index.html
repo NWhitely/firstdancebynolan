@@ -140,9 +140,23 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('') center/cover no-repeat;
-            opacity: 0.1;
-            /* Placeholder for hero image - replace url('') with your image */
+            background:
+                radial-gradient(ellipse at 20% 80%, rgba(201, 168, 124, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(201, 168, 124, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(232, 221, 208, 0.3) 0%, transparent 70%);
+            /* Replace with your image: background: url('your-hero.jpg') center/cover no-repeat; */
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(201, 168, 124, 0.2) 0%, transparent 70%);
+            filter: blur(40px);
         }
 
         .hero-content {
@@ -432,11 +446,84 @@
             border-bottom: none;
         }
 
-        .pricing-note {
+        .pricing-simple {
+            max-width: 700px;
+            margin: 0 auto;
             text-align: center;
-            margin-top: 3rem;
-            color: var(--text-light);
+        }
+
+        .pricing-highlight {
+            background: var(--white);
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-starting {
             font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .price-display {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--primary);
+        }
+
+        .price-display span {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+
+        .pricing-or {
+            color: var(--text-light);
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .pricing-includes {
+            background: var(--white);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-includes h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .pricing-includes ul {
+            list-style: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .pricing-includes li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .pricing-includes li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .pricing-cta {
+            padding: 2rem;
+        }
+
+        .pricing-cta p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
         }
 
         /* Contact */
@@ -718,20 +805,20 @@
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial">
-                    <p>"Nolan made us feel so comfortable from day one. We went from having two left feet to dancing like we'd been doing it for years. Our guests were blown away!"</p>
-                    <div class="testimonial-author">Sarah & Michael <span>— Married October 2024</span></div>
+                    <p>"We wanted a country two-step to our favorite song, and Nolan absolutely nailed it. He broke everything down so simply that even my husband — who swore he couldn't dance — looked like a pro. The video of our first dance is still my favorite from the whole wedding."</p>
+                    <div class="testimonial-author">Rachel & Tyler <span>— Dripping Springs, TX</span></div>
                 </div>
                 <div class="testimonial">
-                    <p>"We were so nervous about our first dance, but Nolan's patience and creativity turned it into the highlight of our reception. We can't thank him enough!"</p>
-                    <div class="testimonial-author">Emily & James <span>— Married June 2024</span></div>
+                    <p>"Nolan choreographed a waltz for us that had my grandmother in tears. He somehow made it elegant enough to impress everyone but easy enough that we never felt overwhelmed. His patience is unmatched — we must have run through the dip 50 times until we got it perfect!"</p>
+                    <div class="testimonial-author">Priya & Marcus <span>— Austin, TX</span></div>
                 </div>
                 <div class="testimonial">
-                    <p>"The choreography was perfect for us — romantic but not over the top. Nolan really listened to what we wanted and delivered beyond our expectations."</p>
-                    <div class="testimonial-author">Amanda & David <span>— Married August 2024</span></div>
+                    <p>"I was TERRIFIED of our first dance. Like, anxiety dreams terrified. Nolan made every lesson feel low-pressure and actually fun. By our wedding day, I was excited to dance. Our guests kept asking where we learned to move like that. Honestly, best money we spent."</p>
+                    <div class="testimonial-author">Jen & Alyssa <span>— Round Rock, TX</span></div>
                 </div>
                 <div class="testimonial">
-                    <p>"Best investment we made for our wedding! The lessons were fun, and we actually looked forward to practicing. Worth every penny."</p>
-                    <div class="testimonial-author">Jessica & Chris <span>— Married September 2024</span></div>
+                    <p>"We threw Nolan a curveball — we wanted swing with a surprise lift at the end. Not only did he make it happen, but he made sure we felt 100% confident. The reaction from our guests when we hit that lift? Priceless. We're already planning to take more lessons just for fun."</p>
+                    <div class="testimonial-author">Brittany & Corey <span>— Cedar Park, TX</span></div>
                 </div>
             </div>
         </div>
@@ -743,47 +830,30 @@
             <div class="section-header">
                 <h2>Investment</h2>
                 <div class="divider"></div>
-                <p>Packages designed to fit your needs and timeline</p>
+                <p>Every couple is different — let's build a package that fits your timeline, budget, and goals</p>
             </div>
-            <div class="pricing-cards">
-                <div class="pricing-card">
-                    <h3>Essential</h3>
-                    <div class="price">$XXX</div>
-                    <ul>
-                        <li>Initial consultation</li>
-                        <li>3 private lessons</li>
-                        <li>Basic choreography</li>
-                        <li>Practice video provided</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Get Started</a>
+            <div class="pricing-simple">
+                <div class="pricing-highlight">
+                    <p class="pricing-starting">Lessons starting at</p>
+                    <div class="price-display">$90 <span>/ 45 min</span></div>
+                    <p class="pricing-or">or</p>
+                    <div class="price-display">$120 <span>/ hour</span></div>
                 </div>
-                <div class="pricing-card featured">
-                    <h3>Signature</h3>
-                    <div class="price">$XXX</div>
+                <div class="pricing-includes">
+                    <h3>What's Included</h3>
                     <ul>
-                        <li>Initial consultation</li>
-                        <li>5 private lessons</li>
-                        <li>Custom choreography</li>
-                        <li>Practice videos after each session</li>
-                        <li>Email support between lessons</li>
+                        <li>Custom choreography tailored to your song</li>
+                        <li>Patient, step-by-step instruction for all skill levels</li>
+                        <li>Practice videos to take home</li>
+                        <li>Flexible scheduling around your busy lives</li>
+                        <li>A stress-free, fun experience (I promise!)</li>
                     </ul>
-                    <a href="#contact" class="btn">Get Started</a>
                 </div>
-                <div class="pricing-card">
-                    <h3>Showstopper</h3>
-                    <div class="price">$XXX</div>
-                    <ul>
-                        <li>Initial consultation</li>
-                        <li>8 private lessons</li>
-                        <li>Advanced choreography</li>
-                        <li>Practice videos after each session</li>
-                        <li>Unlimited email support</li>
-                        <li>Day-of refresher session</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                <div class="pricing-cta">
+                    <p>Most couples book 4-6 sessions, but whether you need 2 lessons or 10, I'll create a plan that works for you.</p>
+                    <a href="#contact" class="btn">Get Your Custom Quote</a>
                 </div>
             </div>
-            <p class="pricing-note">Custom packages available. Contact me to discuss your specific needs.</p>
         </div>
     </section>
 
@@ -795,8 +865,8 @@
                     <h3>Let's Create Your First Dance</h3>
                     <p>Ready to start planning? I'd love to hear about your wedding and your vision for your first dance. Reach out and let's make it happen.</p>
                     <div class="contact-details">
-                        <a href="mailto:hello@firstdancebynolan.com">hello@firstdancebynolan.com</a>
-                        <a href="tel:+15125551234">(512) 555-1234</a>
+                        <a href="mailto:whitely.nolan@gmail.com">whitely.nolan@gmail.com</a>
+                        <!-- Add Google Voice number here when ready: <a href="tel:+1XXXXXXXXXX">(512) XXX-XXXX</a> -->
                         <p>Austin, TX & surrounding areas</p>
                     </div>
                     <p><strong>Response time:</strong> I typically respond within 24 hours.</p>
@@ -830,11 +900,9 @@
     <footer>
         <a href="#" class="logo">First Dance by Nolan</a>
         <div class="social-links">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
+            <a href="https://instagram.com/nolan.whitely" target="_blank" rel="noopener">Instagram</a>
         </div>
-        <p>&copy; 2025 First Dance by Nolan. All rights reserved.</p>
+        <p>&copy; 2026 First Dance by Nolan. All rights reserved.</p>
     </footer>
 
     <script>
