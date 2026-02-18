@@ -674,6 +674,182 @@
             }
         }
 
+        /* Featured In */
+        .featured-in {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .featured-in p {
+            text-align: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            opacity: 0.6;
+        }
+
+        .featured-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .featured-logo:hover {
+            opacity: 0.8;
+        }
+
+        .featured-logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 0.9rem;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: var(--bg-alt);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: var(--accent);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-overlay p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .gallery-item-overlay span {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .gallery-item.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-item.featured {
+                grid-column: span 2;
+                grid-row: span 1;
+                aspect-ratio: 2/1;
+            }
+        }
+
+        /* FAQ */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.5rem 0;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: var(--text);
+            transition: color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
         /* Fade-in Animations */
         .fade-in {
             opacity: 0;
@@ -902,7 +1078,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">About</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -922,6 +1098,18 @@
             <h1>Your First Dance, Perfectly Crafted</h1>
             <p>Custom choreography in Ballroom, Country, Swing, and more — tailored to your song and style. No dance experience needed.</p>
             <a href="#contact" class="btn btn-primary-pulse">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <!-- Featured In -->
+    <section class="featured-in">
+        <p>As Featured In</p>
+        <div class="featured-logos fade-in">
+            <a href="#" class="featured-logo">The Knot</a>
+            <a href="#" class="featured-logo">WeddingWire</a>
+            <a href="#" class="featured-logo">Austin <span>Monthly</span></a>
+            <a href="#" class="featured-logo">Texas <span>Weddings</span></a>
+            <a href="#" class="featured-logo">Brides <span>of Austin</span></a>
         </div>
     </section>
 
@@ -998,6 +1186,135 @@
                 <div class="testimonial">
                     <p>"We threw Nolan a curveball — we wanted swing with a surprise lift at the end. Not only did he make it happen, but he made sure we felt 100% confident. The reaction from our guests when we hit that lift? Priceless. We're already planning to take more lessons just for fun."</p>
                     <div class="testimonial-author">Brittany & Corey <span>— Cedar Park, TX</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Moments We've Created</h2>
+                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
+                <p>A glimpse into the magic of our couples' first dances</p>
+            </div>
+            <div class="gallery-grid fade-in">
+                <div class="gallery-item featured">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80" alt="Wedding couple dancing">
+                    <div class="gallery-item-overlay">
+                        <p>Maria & James</p>
+                        <span>Waltz to "Perfect"</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="First dance">
+                    <div class="gallery-item-overlay">
+                        <p>Ashley & Ryan</p>
+                        <span>Country Two-Step</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80" alt="Wedding dance">
+                    <div class="gallery-item-overlay">
+                        <p>Christina & Mark</p>
+                        <span>Foxtrot</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&q=80" alt="Couple dancing">
+                    <div class="gallery-item-overlay">
+                        <p>Nicole & David</p>
+                        <span>Swing</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80" alt="Wedding first dance">
+                    <div class="gallery-item-overlay">
+                        <p>Samantha & Chris</p>
+                        <span>Rumba</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=400&q=80" alt="Dancing couple">
+                    <div class="gallery-item-overlay">
+                        <p>Emily & Josh</p>
+                        <span>Cha Cha</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=400&q=80" alt="Wedding moment">
+                    <div class="gallery-item-overlay">
+                        <p>Lauren & Michael</p>
+                        <span>Nightclub Two-Step</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Common Questions</h2>
+                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
+                <p>Everything you need to know before we start</p>
+            </div>
+            <div class="faq-list fade-in">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        We have two left feet. Can you really teach us to dance?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! Most of my couples come to me with zero dance experience, and that's completely fine. I specialize in breaking down moves into simple, manageable steps. By the end of our sessions, you'll look like you've been dancing together for years. Trust the process — I've never had a couple who couldn't pull it off.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How many lessons do we need?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Most couples book 4-6 sessions, which gives us enough time to learn the choreography and build confidence. If you're looking for something simpler (a classic sway with a few highlights), 2-3 sessions might be enough. For a show-stopping routine with lifts or complex moves, plan for 6-8 sessions. We'll figure out the right number during your consultation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How far in advance should we book?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>I recommend starting lessons 2-3 months before your wedding. This gives us plenty of time to learn, practice, and polish without feeling rushed. That said, I've worked with couples as close as 3 weeks out — we just adjust expectations accordingly. The sooner you book, the more flexibility we have with scheduling.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can you work with any song?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! I've choreographed dances to everything from Ed Sheeran ballads to country classics to 80s power ballads. If you haven't chosen your song yet, I can help you pick one that fits your vibe and is dance-friendly. Some songs work better than others, but I can make almost any song work with the right approach.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if one of us is more experienced than the other?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Very common! I'll create choreography that plays to both of your strengths. The more experienced partner might get a few extra flourishes, while I'll make sure the less experienced partner has moves they feel confident with. The goal is for both of you to shine and feel comfortable.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer lessons for parent dances too?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Mother-son and father-daughter dances are special moments too. I offer single sessions or mini-packages specifically for parent dances. We can keep it simple and elegant, or add a fun surprise element — whatever fits your relationship and comfort level.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1191,6 +1508,22 @@
 
         window.addEventListener('scroll', highlightNav);
         highlightNav();
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
 
         // Smooth scroll for anchor links (fallback for browsers without CSS smooth scroll)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
