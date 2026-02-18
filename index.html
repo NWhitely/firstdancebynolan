@@ -111,8 +111,13 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
         }
 
         /* Scroll Progress Bar */
@@ -238,6 +243,15 @@
             color: var(--primary);
         }
 
+        .btn-primary-pulse {
+            animation: subtle-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes subtle-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 124, 0); }
+            50% { box-shadow: 0 0 20px 3px rgba(201, 168, 124, 0.3); }
+        }
+
         .btn-outline {
             background: transparent;
             color: var(--text);
@@ -280,6 +294,32 @@
             height: 2px;
             background: var(--primary);
             margin: 1.5rem auto;
+        }
+
+        /* Decorative Flourish */
+        .flourish {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem auto;
+        }
+
+        .flourish::before,
+        .flourish::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary));
+        }
+
+        .flourish::after {
+            background: linear-gradient(90deg, var(--primary), transparent);
+        }
+
+        .flourish-icon {
+            color: var(--primary);
+            font-size: 0.8rem;
         }
 
         /* About Section */
@@ -392,6 +432,19 @@
             margin-bottom: 1.5rem;
             font-size: 1rem;
             line-height: 1.8;
+            position: relative;
+        }
+
+        .testimonial p::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.3;
+            line-height: 1;
         }
 
         .testimonial-author {
@@ -868,7 +921,7 @@
             <p class="hero-subtitle">Austin, TX Wedding Dance Choreography</p>
             <h1>Your First Dance, Perfectly Crafted</h1>
             <p>Custom choreography in Ballroom, Country, Swing, and more — tailored to your song and style. No dance experience needed.</p>
-            <a href="#contact" class="btn">Book Your Consultation</a>
+            <a href="#contact" class="btn btn-primary-pulse">Book Your Consultation</a>
         </div>
     </section>
 
@@ -898,7 +951,7 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2>How It Works</h2>
-                <div class="divider"></div>
+                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
                 <p>Three simple steps to your perfect first dance</p>
             </div>
             <div class="steps fade-in-stagger">
@@ -926,7 +979,7 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Love Stories</h2>
-                <div class="divider"></div>
+                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
                 <p>What couples are saying</p>
             </div>
             <div class="testimonial-grid fade-in-stagger">
@@ -955,7 +1008,7 @@
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Investment</h2>
-                <div class="divider"></div>
+                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
                 <p>Every couple is different — let's build a package that fits your timeline, budget, and goals</p>
             </div>
             <div class="pricing-simple fade-in">
@@ -1112,6 +1165,32 @@
         document.querySelectorAll('.fade-in, .fade-in-stagger').forEach(el => {
             fadeObserver.observe(el);
         });
+
+        // Active nav link highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksAll = document.querySelectorAll('.nav-links a');
+
+        const highlightNav = () => {
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinksAll.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        };
+
+        window.addEventListener('scroll', highlightNav);
+        highlightNav();
 
         // Smooth scroll for anchor links (fallback for browsers without CSS smooth scroll)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
