@@ -97,6 +97,34 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary);
+            z-index: 1001;
+            width: 0%;
+            transition: width 0.1s ease-out;
         }
 
         .nav-links a:hover {
@@ -350,6 +378,12 @@
             padding: 2.5rem;
             background: var(--bg);
             border-left: 3px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
         }
 
         .testimonial p {
@@ -546,7 +580,14 @@
 
         .format {
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            border-radius: 4px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .format:hover {
+            transform: translateY(-3px);
+            background: rgba(201, 168, 124, 0.05);
         }
 
         .format-icon {
@@ -578,6 +619,34 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
+        }
+
+        /* Fade-in Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-stagger > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
+        .fade-in-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
+        .fade-in-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+        .fade-in-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
+
+        .fade-in-stagger.visible > * {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Contact */
@@ -770,6 +839,9 @@
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -803,7 +875,7 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <div class="about-content">
+            <div class="about-content fade-in">
                 <div class="about-image">
                     <div class="about-image-placeholder">
                         <!-- Replace with your image: <img src="your-image.jpg" alt="Nolan Wayne"> -->
@@ -824,12 +896,12 @@
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>How It Works</h2>
                 <div class="divider"></div>
                 <p>Three simple steps to your perfect first dance</p>
             </div>
-            <div class="steps">
+            <div class="steps fade-in-stagger">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Consult</h3>
@@ -852,12 +924,12 @@
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>Love Stories</h2>
                 <div class="divider"></div>
                 <p>What couples are saying</p>
             </div>
-            <div class="testimonial-grid">
+            <div class="testimonial-grid fade-in-stagger">
                 <div class="testimonial">
                     <p>"We wanted a country two-step to our favorite song, and Nolan absolutely nailed it. He broke everything down so simply that even my husband — who swore he couldn't dance — looked like a pro. The video of our first dance is still my favorite from the whole wedding."</p>
                     <div class="testimonial-author">Rachel & Tyler <span>— Dripping Springs, TX</span></div>
@@ -881,12 +953,12 @@
     <!-- Pricing -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2>Investment</h2>
                 <div class="divider"></div>
                 <p>Every couple is different — let's build a package that fits your timeline, budget, and goals</p>
             </div>
-            <div class="pricing-simple">
+            <div class="pricing-simple fade-in">
                 <div class="pricing-highlight">
                     <p class="pricing-starting">Lessons starting at</p>
                     <div class="price-display">$90 <span>/ 45 min</span></div>
@@ -940,7 +1012,7 @@
     <!-- Contact -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="contact-content">
+            <div class="contact-content fade-in">
                 <div class="contact-info">
                     <h3>Let's Create Your First Dance</h3>
                     <p>Ready to start planning? I'd love to hear about your wedding and your vision for your first dance. Reach out and let's make it happen.</p>
@@ -1003,14 +1075,42 @@
             });
         });
 
-        // Navbar scroll effect
+        // Navbar scroll effect & scroll progress bar
         const navbar = document.getElementById('navbar');
+        const scrollProgress = document.getElementById('scrollProgress');
+
         window.addEventListener('scroll', () => {
+            // Navbar shadow
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
+
+            // Scroll progress bar
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Fade-in animations on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .fade-in-stagger').forEach(el => {
+            fadeObserver.observe(el);
         });
 
         // Smooth scroll for anchor links (fallback for browsers without CSS smooth scroll)
