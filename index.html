@@ -336,15 +336,13 @@
             position: relative;
         }
 
-        .about-image-placeholder {
+        .about-photo {
+            width: 100%;
+            height: auto;
             aspect-ratio: 4/5;
-            background: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            /* Replace with actual image */
+            object-fit: cover;
+            object-position: center top;
+            filter: grayscale(100%);
         }
 
         .about-text h3 {
@@ -1158,10 +1156,7 @@
         <div class="container">
             <div class="about-content fade-in">
                 <div class="about-image">
-                    <div class="about-image-placeholder">
-                        <!-- Replace with your image: <img src="your-image.jpg" alt="Nolan Wayne"> -->
-                        [Your Photo Here]
-                    </div>
+                    <img src="assets/nolan-headshot.jpg" alt="Nolan Wayne - Wedding Dance Choreographer" class="about-photo">
                 </div>
                 <div class="about-text">
                     <h3>Meet Nolan</h3>
