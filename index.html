@@ -161,9 +161,22 @@
             justify-content: center;
             text-align: center;
             padding: 6rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+            background: var(--text);
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
         }
 
         .hero::before {
@@ -173,28 +186,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background:
-                radial-gradient(ellipse at 20% 80%, rgba(201, 168, 124, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(201, 168, 124, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(232, 221, 208, 0.3) 0%, transparent 70%);
-            /* Replace with your image: background: url('your-hero.jpg') center/cover no-repeat; */
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(ellipse, rgba(201, 168, 124, 0.2) 0%, transparent 70%);
-            filter: blur(40px);
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 800px;
         }
 
@@ -211,12 +209,12 @@
             font-weight: 400;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            color: var(--text);
+            color: var(--white);
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
@@ -1134,7 +1132,9 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <!-- Add your hero video/image here by updating the CSS background or adding an img/video element -->
+        <video class="hero-video" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1920&q=80">
+            <source src="https://videos.pexels.com/video-files/3327870/3327870-uhd_2560_1440_30fps.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
             <p class="hero-subtitle">Austin, TX Wedding Dance Choreography</p>
             <h1>Your First Dance, Perfectly Crafted</h1>
