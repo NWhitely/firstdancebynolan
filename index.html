@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom wedding first dance choreography in Austin, TX. Ballroom, Country, Swing, and more. Nolan Wayne creates personalized, stress-free first dance routines for couples of all skill levels.">
+    <meta name="keywords" content="wedding first dance, first dance choreography, Austin TX wedding dance, custom wedding dance, wedding dance lessons Austin, ballroom dance Austin, country dance wedding, swing dance wedding">
+    <meta name="author" content="Nolan Wayne">
+    <meta property="og:title" content="First Dance by Nolan | Custom Wedding Choreography in Austin, TX">
+    <meta property="og:description" content="Make your wedding first dance unforgettable. Professional choreography tailored to your song and style.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <title>First Dance by Nolan | Custom Wedding Choreography in Austin, TX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c9a87c;
+            --primary-dark: #b08d5b;
+            --text: #2c2c2c;
+            --text-light: #666;
+            --bg: #fffcf8;
+            --bg-alt: #f9f5ef;
+            --white: #ffffff;
+            --accent: #e8ddd0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 252, 248, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('') center/cover no-repeat;
+            opacity: 0.1;
+            /* Placeholder for hero image - replace url('') with your image */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background: var(--text);
+            color: var(--white);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--primary);
+            margin: 1.5rem auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image-placeholder {
+            aspect-ratio: 4/5;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            /* Replace with actual image */
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .about-text p:last-of-type {
+            margin-bottom: 2rem;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--bg-alt);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial {
+            padding: 2.5rem;
+            background: var(--bg);
+            border-left: 3px solid var(--primary);
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .testimonial-author span {
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Pricing */
+        .pricing {
+            background: var(--bg-alt);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.25rem 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--accent);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .pricing-card li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details a {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: var(--bg);
+            padding: 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--accent);
+            background: var(--white);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: var(--white);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        footer .social-links {
+            margin: 1.5rem 0;
+        }
+
+        footer .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .pricing-cards {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .pricing-card.featured {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">First Dance by Nolan</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Add your hero video/image here by updating the CSS background or adding an img/video element -->
+        <div class="hero-content">
+            <p class="hero-subtitle">Austin, TX Wedding Dance Choreography</p>
+            <h1>Your First Dance, Perfectly Crafted</h1>
+            <p>Custom choreography in Ballroom, Country, Swing, and more — tailored to your song and style. No dance experience needed.</p>
+            <a href="#contact" class="btn">Book Your Consultation</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-placeholder">
+                        <!-- Replace with your image: <img src="your-image.jpg" alt="Nolan Wayne"> -->
+                        [Your Photo Here]
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Meet Nolan</h3>
+                    <p>Hi, I'm Nolan Wayne — a professional dancer specializing in Ballroom, Country, Swing, and more. I have a passion for helping couples create unforgettable wedding moments.</p>
+                    <p>I know that stepping onto the dance floor in front of everyone can feel intimidating. That's why I've made it my mission to make the choreography process fun, stress-free, and completely tailored to you. Whether you want a classic waltz, a country two-step, a smooth swing, or something uniquely yours — I'll create the perfect dance for your big moment.</p>
+                    <p>Every couple has their own story, and your first dance should tell yours. Let's create something beautiful together.</p>
+                    <a href="#contact" class="btn-outline btn">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <div class="divider"></div>
+                <p>Three simple steps to your perfect first dance</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Consult</h3>
+                    <p>We'll chat about your vision, your song, and your comfort level. This is where we get to know each other and start planning your dance.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Choreograph</h3>
+                    <p>I'll create custom choreography tailored to your song, style, and skill level. We'll practice together until you feel confident and camera-ready.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Perform</h3>
+                    <p>On your big day, you'll step onto that dance floor with confidence, ready to share a magical moment with your partner and your guests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Love Stories</h2>
+                <div class="divider"></div>
+                <p>What couples are saying</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"Nolan made us feel so comfortable from day one. We went from having two left feet to dancing like we'd been doing it for years. Our guests were blown away!"</p>
+                    <div class="testimonial-author">Sarah & Michael <span>— Married October 2024</span></div>
+                </div>
+                <div class="testimonial">
+                    <p>"We were so nervous about our first dance, but Nolan's patience and creativity turned it into the highlight of our reception. We can't thank him enough!"</p>
+                    <div class="testimonial-author">Emily & James <span>— Married June 2024</span></div>
+                </div>
+                <div class="testimonial">
+                    <p>"The choreography was perfect for us — romantic but not over the top. Nolan really listened to what we wanted and delivered beyond our expectations."</p>
+                    <div class="testimonial-author">Amanda & David <span>— Married August 2024</span></div>
+                </div>
+                <div class="testimonial">
+                    <p>"Best investment we made for our wedding! The lessons were fun, and we actually looked forward to practicing. Worth every penny."</p>
+                    <div class="testimonial-author">Jessica & Chris <span>— Married September 2024</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investment</h2>
+                <div class="divider"></div>
+                <p>Packages designed to fit your needs and timeline</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Essential</h3>
+                    <div class="price">$XXX</div>
+                    <ul>
+                        <li>Initial consultation</li>
+                        <li>3 private lessons</li>
+                        <li>Basic choreography</li>
+                        <li>Practice video provided</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Signature</h3>
+                    <div class="price">$XXX</div>
+                    <ul>
+                        <li>Initial consultation</li>
+                        <li>5 private lessons</li>
+                        <li>Custom choreography</li>
+                        <li>Practice videos after each session</li>
+                        <li>Email support between lessons</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Showstopper</h3>
+                    <div class="price">$XXX</div>
+                    <ul>
+                        <li>Initial consultation</li>
+                        <li>8 private lessons</li>
+                        <li>Advanced choreography</li>
+                        <li>Practice videos after each session</li>
+                        <li>Unlimited email support</li>
+                        <li>Day-of refresher session</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Get Started</a>
+                </div>
+            </div>
+            <p class="pricing-note">Custom packages available. Contact me to discuss your specific needs.</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Create Your First Dance</h3>
+                    <p>Ready to start planning? I'd love to hear about your wedding and your vision for your first dance. Reach out and let's make it happen.</p>
+                    <div class="contact-details">
+                        <a href="mailto:hello@firstdancebynolan.com">hello@firstdancebynolan.com</a>
+                        <a href="tel:+15125551234">(512) 555-1234</a>
+                        <p>Austin, TX & surrounding areas</p>
+                    </div>
+                    <p><strong>Response time:</strong> I typically respond within 24 hours.</p>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Names</label>
+                            <input type="text" id="name" name="name" required placeholder="e.g., Sarah & Michael">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Wedding Date</label>
+                            <input type="text" id="date" name="wedding_date" placeholder="e.g., October 15, 2025">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell Me About Your Vision</label>
+                            <textarea id="message" name="message" placeholder="What song are you considering? Any ideas for your dance?"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <a href="#" class="logo">First Dance by Nolan</a>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+        </div>
+        <p>&copy; 2025 First Dance by Nolan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links (fallback for browsers without CSS smooth scroll)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
