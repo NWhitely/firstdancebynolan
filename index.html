@@ -674,6 +674,53 @@
             }
         }
 
+        /* Inclusive Badge */
+        .inclusive-badge {
+            background: linear-gradient(135deg, #fff 0%, var(--bg-alt) 100%);
+            border: 1px solid var(--accent);
+            padding: 1.25rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .inclusive-badge svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        .inclusive-badge span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .inclusive-badge .badge-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            padding-left: 0.75rem;
+            border-left: 1px solid var(--accent);
+        }
+
+        @media (max-width: 500px) {
+            .inclusive-badge {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .inclusive-badge .badge-subtitle {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+
         /* Featured In */
         .featured-in {
             background: var(--white);
@@ -1127,7 +1174,7 @@
                     <h3>Meet Nolan</h3>
                     <p>Hi, I'm Nolan Wayne — a professional dancer specializing in Ballroom, Country, Swing, and more. I have a passion for helping couples create unforgettable wedding moments.</p>
                     <p>I know that stepping onto the dance floor in front of everyone can feel intimidating. That's why I've made it my mission to make the choreography process fun, stress-free, and completely tailored to you. Whether you want a classic waltz, a country two-step, a smooth swing, or something uniquely yours — I'll create the perfect dance for your big moment.</p>
-                    <p>Every couple has their own story, and your first dance should tell yours. Let's create something beautiful together.</p>
+                    <p>Every couple has their own story, and your first dance should tell yours. I'm proud to work with all couples — LGBTQ+ always welcome. Let's create something beautiful together.</p>
                     <a href="#contact" class="btn-outline btn">Let's Talk</a>
                 </div>
             </div>
@@ -1370,6 +1417,11 @@
                             <p>Not local? No problem. I've taught couples from around the world via video.</p>
                         </div>
                     </div>
+                </div>
+                <div class="inclusive-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                    <span>All Couples Welcome</span>
+                    <span class="badge-subtitle">LGBTQ+ Friendly</span>
                 </div>
                 <div class="pricing-cta">
                     <p>Most couples book 4-6 sessions, but whether you need 2 lessons or 10, I'll create a plan that works for you.</p>
