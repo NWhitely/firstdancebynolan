@@ -526,6 +526,53 @@
             margin-bottom: 1.5rem;
         }
 
+        .lesson-formats {
+            background: var(--white);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .lesson-formats h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .formats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .format {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .format-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .format h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .format p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            .formats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
         /* Contact */
         .contact {
             background: var(--white);
@@ -849,6 +896,26 @@
                         <li>A stress-free, fun experience (I promise!)</li>
                     </ul>
                 </div>
+                <div class="lesson-formats">
+                    <h3>Lessons Your Way</h3>
+                    <div class="formats-grid">
+                        <div class="format">
+                            <div class="format-icon">🏠</div>
+                            <h4>In-Home</h4>
+                            <p>I come to you. Learn in the comfort and privacy of your own space.</p>
+                        </div>
+                        <div class="format">
+                            <div class="format-icon">💃</div>
+                            <h4>Studio</h4>
+                            <p>Professional floors and mirrors at partner studios across Austin.</p>
+                        </div>
+                        <div class="format">
+                            <div class="format-icon">🌎</div>
+                            <h4>Virtual</h4>
+                            <p>Not local? No problem. I've taught couples from around the world via video.</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="pricing-cta">
                     <p>Most couples book 4-6 sessions, but whether you need 2 lessons or 10, I'll create a plan that works for you.</p>
                     <a href="#contact" class="btn">Get Your Custom Quote</a>
@@ -867,7 +934,7 @@
                     <div class="contact-details">
                         <a href="mailto:whitely.nolan@gmail.com">whitely.nolan@gmail.com</a>
                         <!-- Add Google Voice number here when ready: <a href="tel:+1XXXXXXXXXX">(512) XXX-XXXX</a> -->
-                        <p>Austin, TX & surrounding areas</p>
+                        <p>Based in Austin, TX — available worldwide via virtual lessons</p>
                     </div>
                     <p><strong>Response time:</strong> I typically respond within 24 hours.</p>
                 </div>
