@@ -743,17 +743,22 @@
         }
 
         .featured-logo {
-            height: 35px;
-            width: auto;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: filter 0.3s ease, opacity 0.3s ease;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .featured-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
+            color: var(--primary);
+        }
+
+        .featured-logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
         }
 
         /* Gallery */
@@ -1145,9 +1150,9 @@
     <section class="featured-in">
         <p>As Featured In</p>
         <div class="featured-logos fade-in">
-            <img src="https://www.theknot.com/tk-media/images/logo-theknot.svg" alt="The Knot" class="featured-logo">
-            <img src="https://cdn1.weddingwire.com/assets/img/logos/gen_logoHeader.svg" alt="WeddingWire" class="featured-logo">
-            <img src="https://bridesofaustin.com/wp-content/uploads/2020/01/brides-of-austin-logo.png" alt="Brides of Austin" class="featured-logo">
+            <span class="featured-logo">The Knot</span>
+            <span class="featured-logo">WeddingWire</span>
+            <span class="featured-logo">Brides <span>of Austin</span></span>
         </div>
     </section>
 
