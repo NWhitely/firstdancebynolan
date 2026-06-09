@@ -3,1112 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Custom wedding first dance choreography in Austin, TX. Ballroom, Country, Swing, and more. Nolan Wayne creates personalized, stress-free first dance routines for couples of all skill levels.">
-    <meta name="keywords" content="wedding first dance, first dance choreography, Austin TX wedding dance, custom wedding dance, wedding dance lessons Austin, ballroom dance Austin, country dance wedding, swing dance wedding">
+    <meta name="description" content="Dance lessons in Austin, TX for non-dancers and beginners. Wedding first dances and private lessons in Ballroom, Country, Swing, and more. Taught by Nolan Wayne, who danced in Dancing with the Stars Austin. No experience needed.">
+    <meta name="keywords" content="dance lessons Austin, beginner dance lessons, wedding first dance Austin, ballroom dance Austin, country dance lessons, swing dance lessons, private dance lessons Austin">
     <meta name="author" content="Nolan Wayne">
-    <meta property="og:title" content="First Dance by Nolan | Custom Wedding Choreography in Austin, TX">
-    <meta property="og:description" content="Make your wedding first dance unforgettable. Professional choreography tailored to your song and style.">
+    <meta property="og:title" content="Dance by Nolan | Beginner-Friendly Dance Lessons in Austin, TX">
+    <meta property="og:description" content="From first dances to first lessons. Approachable, low-pressure dance instruction in Austin from Nolan Wayne of Dancing with the Stars Austin.">
     <meta property="og:type" content="website">
     <meta name="robots" content="index, follow">
-    <title>First Dance by Nolan | Custom Wedding Choreography in Austin, TX</title>
+    <title>Dance by Nolan | Beginner-Friendly Dance Lessons in Austin, TX</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #c9a87c;
-            --primary-dark: #b08d5b;
-            --text: #2c2c2c;
-            --text-light: #666;
-            --bg: #fffcf8;
-            --bg-alt: #f9f5ef;
-            --white: #ffffff;
-            --accent: #e8ddd0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            color: var(--text);
-            background-color: var(--bg);
-            line-height: 1.7;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 500;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 252, 248, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-            transition: box-shadow 0.3s ease;
-        }
-
-        nav.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.85rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        /* Scroll Progress Bar */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--primary);
-            z-index: 1001;
-            width: 0%;
-            transition: width 0.1s ease-out;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background: var(--text);
-            margin: 5px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 6rem 2rem 4rem;
-            background: var(--text);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.45);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        .hero-subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            color: var(--white);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.85);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border: 2px solid var(--primary);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: var(--primary);
-        }
-
-        .btn-primary-pulse {
-            animation: subtle-pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes subtle-pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 124, 0); }
-            50% { box-shadow: 0 0 20px 3px rgba(201, 168, 124, 0.3); }
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text);
-            border-color: var(--text);
-        }
-
-        .btn-outline:hover {
-            background: var(--text);
-            color: var(--white);
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 2rem;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: var(--primary);
-            margin: 1.5rem auto;
-        }
-
-        /* Decorative Flourish */
-        .flourish {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1.5rem auto;
-        }
-
-        .flourish::before,
-        .flourish::after {
-            content: '';
-            width: 60px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary));
-        }
-
-        .flourish::after {
-            background: linear-gradient(90deg, var(--primary), transparent);
-        }
-
-        .flourish-icon {
-            color: var(--primary);
-            font-size: 0.8rem;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--white);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-photo {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 4/5;
-            object-fit: cover;
-            object-position: center top;
-            filter: grayscale(100%);
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .about-text p:last-of-type {
-            margin-bottom: 2rem;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background: var(--bg-alt);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-        }
-
-        .step {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .step p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: var(--white);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .testimonial {
-            padding: 2.5rem;
-            background: var(--bg);
-            border-left: 3px solid var(--primary);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .testimonial:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-        }
-
-        .testimonial p {
-            font-style: italic;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.8;
-            position: relative;
-        }
-
-        .testimonial p::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.3;
-            line-height: 1;
-        }
-
-        .testimonial-author {
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        .testimonial-author span {
-            color: var(--text-light);
-            font-weight: 300;
-        }
-
-        /* Pricing */
-        .pricing {
-            background: var(--bg-alt);
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--primary);
-            position: relative;
-        }
-
-        .pricing-card.featured::before {
-            content: 'Most Popular';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: var(--white);
-            padding: 0.25rem 1rem;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-card .price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            color: var(--primary);
-            margin: 1rem 0;
-        }
-
-        .pricing-card .price span {
-            font-size: 1rem;
-            color: var(--text-light);
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .pricing-card li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--accent);
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .pricing-card li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-simple {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .pricing-highlight {
-            background: var(--white);
-            padding: 3rem;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-starting {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .price-display {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            color: var(--primary);
-        }
-
-        .price-display span {
-            font-size: 1.2rem;
-            color: var(--text-light);
-        }
-
-        .pricing-or {
-            color: var(--text-light);
-            margin: 0.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        .pricing-includes {
-            background: var(--white);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .pricing-includes h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .pricing-includes ul {
-            list-style: none;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .pricing-includes li {
-            padding: 0.75rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-light);
-        }
-
-        .pricing-includes li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .pricing-cta {
-            padding: 2rem;
-        }
-
-        .pricing-cta p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .lesson-formats {
-            background: var(--white);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .lesson-formats h3 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .formats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .format {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 4px;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .format:hover {
-            transform: translateY(-3px);
-            background: rgba(201, 168, 124, 0.05);
-        }
-
-        .format-icon {
-            margin-bottom: 0.75rem;
-        }
-
-        .format-icon svg {
-            width: 40px;
-            height: 40px;
-            stroke: var(--primary);
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .format h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .format p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 600px) {
-            .formats-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
-        /* Inclusive Badge */
-        .inclusive-badge {
-            background: linear-gradient(135deg, #fff 0%, var(--bg-alt) 100%);
-            border: 1px solid var(--accent);
-            padding: 1.25rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            flex-wrap: wrap;
-        }
-
-        .inclusive-badge svg {
-            width: 24px;
-            height: 24px;
-            color: var(--primary);
-        }
-
-        .inclusive-badge span {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            color: var(--text);
-        }
-
-        .inclusive-badge .badge-subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            padding-left: 0.75rem;
-            border-left: 1px solid var(--accent);
-        }
-
-        @media (max-width: 500px) {
-            .inclusive-badge {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            .inclusive-badge .badge-subtitle {
-                border-left: none;
-                padding-left: 0;
-            }
-        }
-
-        /* Featured In */
-        .featured-in {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-bottom: 1px solid var(--accent);
-        }
-
-        .featured-in p {
-            text-align: center;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .featured-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 3rem;
-            opacity: 0.6;
-        }
-
-        .featured-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .featured-logo:hover {
-            color: var(--primary);
-        }
-
-        .featured-logo span {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-size: 1rem;
-        }
-
-        /* Gallery */
-        .gallery {
-            background: var(--bg-alt);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-
-        .gallery-item {
-            aspect-ratio: 1;
-            background: var(--accent);
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-item-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-item-overlay {
-            opacity: 1;
-        }
-
-        .gallery-item-overlay p {
-            font-size: 0.85rem;
-            margin: 0;
-        }
-
-        .gallery-item-overlay span {
-            font-size: 0.75rem;
-            opacity: 0.8;
-        }
-
-        .gallery-item.featured {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-item.featured {
-                grid-column: span 2;
-                grid-row: span 1;
-                aspect-ratio: 2/1;
-            }
-        }
-
-        /* FAQ */
-        .faq {
-            background: var(--white);
-        }
-
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--accent);
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: 1.5rem 0;
-            background: none;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            color: var(--text);
-            transition: color 0.3s ease;
-        }
-
-        .faq-question:hover {
-            color: var(--primary);
-        }
-
-        .faq-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            padding-bottom: 1.5rem;
-        }
-
-        .faq-answer p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Fade-in Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-in-stagger > * {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in-stagger.visible > *:nth-child(1) { transition-delay: 0s; }
-        .fade-in-stagger.visible > *:nth-child(2) { transition-delay: 0.1s; }
-        .fade-in-stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
-        .fade-in-stagger.visible > *:nth-child(4) { transition-delay: 0.3s; }
-
-        .fade-in-stagger.visible > * {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Contact */
-        .contact {
-            background: var(--white);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
-        .contact-details a {
-            display: block;
-            color: var(--text);
-            text-decoration: none;
-            margin-bottom: 0.75rem;
-            transition: color 0.3s ease;
-        }
-
-        .contact-details a:hover {
-            color: var(--primary);
-        }
-
-        .contact-form {
-            background: var(--bg);
-            padding: 2.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--accent);
-            background: var(--white);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text);
-            color: var(--white);
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        footer .logo {
-            color: var(--white);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        footer p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-        }
-
-        footer .social-links {
-            margin: 1.5rem 0;
-        }
-
-        footer .social-links a {
-            color: var(--white);
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-
-        footer .social-links a:hover {
-            opacity: 1;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 968px) {
-            .pricing-cards {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .pricing-card.featured {
-                order: -1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-image {
-                order: -1;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Scroll Progress Bar -->
@@ -1117,12 +23,12 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">First Dance by Nolan</a>
+            <a href="index.html" class="logo">Dance by Nolan</a>
             <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="wedding-services.html">Weddings</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
@@ -1139,10 +45,13 @@
             <source src="https://videos.pexels.com/video-files/3327870/3327870-uhd_2560_1440_30fps.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <p class="hero-subtitle">Austin, TX Wedding Dance Choreography</p>
-            <h1>Your First Dance, Perfectly Crafted</h1>
-            <p>Custom choreography in Ballroom, Country, Swing, and more, tailored to your song and style. No dance experience needed.</p>
-            <a href="#contact" class="btn btn-primary-pulse">Book Your Consultation</a>
+            <p class="hero-subtitle">Austin, TX Dance Lessons &amp; Choreography</p>
+            <h1>Anyone Can Dance. Let Me Show You.</h1>
+            <p>I specialize in turning total beginners into confident dancers. Whether you're prepping for your wedding first dance or just curious to learn, no experience is needed. As seen on Dancing with the Stars Austin.</p>
+            <div class="hero-actions">
+                <a href="wedding-services.html" class="btn btn-primary-pulse">Wedding First Dance</a>
+                <a href="lessons.html" class="btn btn-light">Dance Lessons</a>
+            </div>
         </div>
     </section>
 
@@ -1150,9 +59,42 @@
     <section class="featured-in">
         <p>As Featured In</p>
         <div class="featured-logos fade-in">
+            <span class="featured-logo">Dancing with the Stars <span>Austin</span></span>
             <span class="featured-logo">The Knot</span>
-            <span class="featured-logo">WeddingWire</span>
             <span class="featured-logo">Brides <span>of Austin</span></span>
+        </div>
+    </section>
+
+    <!-- Split Paths -->
+    <section class="paths" id="paths">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Where Would You Like to Start?</h2>
+                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
+                <p>Two ways to dance with me, both built around going at your pace and having fun while you learn.</p>
+            </div>
+            <div class="path-cards fade-in">
+                <div class="path-card">
+                    <div class="path-card-image">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=900&q=80" alt="Couple sharing their wedding first dance">
+                    </div>
+                    <div class="path-card-body">
+                        <h3>Wedding First Dance</h3>
+                        <p>Custom choreography for your big moment, tailored to your song and skill level. Stress-free, beginner-friendly, and made to look effortless in front of your guests.</p>
+                        <a href="wedding-services.html" class="btn">Plan Your First Dance</a>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-card-image">
+                        <img src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=900&q=80" alt="Beginner taking a private dance lesson">
+                    </div>
+                    <div class="path-card-body">
+                        <h3>Dance Lessons</h3>
+                        <p>Private lessons in Ballroom, Country, Swing, and more, for individuals and couples. New to dance? Perfect. This is exactly who I love teaching.</p>
+                        <a href="lessons.html" class="btn">Explore Lessons</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1161,264 +103,14 @@
         <div class="container">
             <div class="about-content fade-in">
                 <div class="about-image">
-                    <img src="assets/nolan-headshot.jpg" alt="Nolan Wayne - Wedding Dance Choreographer" class="about-photo">
+                    <img src="assets/nolan-headshot.jpg" alt="Nolan Wayne - Dance Instructor in Austin, TX" class="about-photo">
                 </div>
                 <div class="about-text">
                     <h3>Meet Nolan</h3>
-                    <p>Hi, I'm Nolan Wayne, a professional dancer specializing in Ballroom, Country, Swing, and more. I have a passion for helping couples create unforgettable wedding moments.</p>
-                    <p>I know that stepping onto the dance floor in front of everyone can feel intimidating. That's why I've made it my mission to make the choreography process fun, stress-free, and completely tailored to you. Whether you want a classic waltz, a country two-step, a smooth swing, or something uniquely yours, I'll create the perfect dance for your big moment.</p>
-                    <p>Every couple has their own story, and your first dance should tell yours. I'm proud to work with all couples, regardless of gender or orientation. Let's create something beautiful together.</p>
+                    <p>Hi, I'm Nolan Wayne, a professional dancer and instructor based in Austin. I danced in Dancing with the Stars Austin, but what I love most isn't the spotlight, it's watching someone who swore they "can't dance" light up the first time it finally clicks.</p>
+                    <p>I specialize in beginners. If you've never taken a lesson in your life, you're exactly who I built this for. I break every move down into simple, manageable steps and keep things low-pressure and genuinely fun, whether we're working on your wedding first dance or your very first Ballroom, Country, or Swing lesson.</p>
+                    <p>Everyone has their own reason to dance, and I'm proud to teach all of my students with patience and zero judgment, regardless of gender or orientation. Let's find yours.</p>
                     <a href="#contact" class="btn-outline btn">Let's Talk</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>How It Works</h2>
-                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
-                <p>Three simple steps to your perfect first dance</p>
-            </div>
-            <div class="steps fade-in-stagger">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Consult</h3>
-                    <p>We'll chat about your vision, your song, and your comfort level. This is where we get to know each other and start planning your dance.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Choreograph</h3>
-                    <p>I'll create custom choreography tailored to your song, style, and skill level. We'll practice together until you feel confident and camera-ready.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Perform</h3>
-                    <p>On your big day, you'll step onto that dance floor with confidence, ready to share a magical moment with your partner and your guests.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Love Stories</h2>
-                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
-                <p>What couples are saying</p>
-            </div>
-            <div class="testimonial-grid fade-in-stagger">
-                <div class="testimonial">
-                    <p>"We wanted a country two-step to our favorite song, and Nolan absolutely nailed it. He broke everything down so simply that even my husband (who swore he couldn't dance) looked like a pro. The video of our first dance is still my favorite from the whole wedding."</p>
-                    <div class="testimonial-author">Rachel & Tyler <span>| Dripping Springs, TX</span></div>
-                </div>
-                <div class="testimonial">
-                    <p>"Nolan choreographed a waltz for us that had my grandmother in tears. He somehow made it elegant enough to impress everyone but easy enough that we never felt overwhelmed. His patience is unmatched. We must have run through the dip 50 times until we got it perfect!"</p>
-                    <div class="testimonial-author">Priya & Marcus <span>| Austin, TX</span></div>
-                </div>
-                <div class="testimonial">
-                    <p>"I was TERRIFIED of our first dance. Like, anxiety dreams terrified. Nolan made every lesson feel low-pressure and actually fun. We loved how much he made it a safe and comfortable experience for us. By our wedding day, I was excited to dance. Our guests kept asking where we learned to move like that. Honestly, best money we spent."</p>
-                    <div class="testimonial-author">Jen & Alyssa <span>| Round Rock, TX</span></div>
-                </div>
-                <div class="testimonial">
-                    <p>"We threw Nolan a curveball: we wanted swing with a surprise lift at the end. Not only did he make it happen, but he made sure we felt 100% confident. The reaction from our guests when we hit that lift? Priceless. We're already planning to take more lessons just for fun."</p>
-                    <div class="testimonial-author">Brittany & Corey <span>| Cedar Park, TX</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="gallery" id="gallery">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Moments We've Created</h2>
-                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
-                <p>A glimpse into the magic of our couples' first dances</p>
-            </div>
-            <div class="gallery-grid fade-in">
-                <div class="gallery-item featured">
-                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80" alt="Wedding couple dancing">
-                    <div class="gallery-item-overlay">
-                        <p>Maria & James</p>
-                        <span>Waltz to "Perfect"</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="First dance">
-                    <div class="gallery-item-overlay">
-                        <p>Ashley & Ryan</p>
-                        <span>Country Two-Step</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&q=80" alt="Wedding dance">
-                    <div class="gallery-item-overlay">
-                        <p>Christina & Mark</p>
-                        <span>Foxtrot</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&q=80" alt="Couple dancing">
-                    <div class="gallery-item-overlay">
-                        <p>Nicole & David</p>
-                        <span>Swing</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&q=80" alt="Wedding first dance">
-                    <div class="gallery-item-overlay">
-                        <p>Samantha & Chris</p>
-                        <span>Rumba</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1460978812857-470ed1c77af0?w=400&q=80" alt="Dancing couple">
-                    <div class="gallery-item-overlay">
-                        <p>Emily & Josh</p>
-                        <span>Cha Cha</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=400&q=80" alt="Wedding moment">
-                    <div class="gallery-item-overlay">
-                        <p>Lauren & Michael</p>
-                        <span>Nightclub Two-Step</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Common Questions</h2>
-                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
-                <p>Everything you need to know before we start</p>
-            </div>
-            <div class="faq-list fade-in">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        We have two left feet. Can you really teach us to dance?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolutely! Most of my couples come to me with zero dance experience, and that's completely fine. I specialize in breaking down moves into simple, manageable steps. By the end of our sessions, you'll look like you've been dancing together for years. Trust the process. I've never had a couple who couldn't pull it off.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How many lessons do we need?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Most couples book 4-6 sessions, which gives us enough time to learn the choreography and build confidence. If you're looking for something simpler (a classic sway with a few highlights), 2-3 sessions might be enough. For a show-stopping routine with lifts or complex moves, plan for 6-8 sessions. We'll figure out the right number during your consultation.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How far in advance should we book?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>I recommend starting lessons 2-3 months before your wedding. This gives us plenty of time to learn, practice, and polish without feeling rushed. That said, I've worked with couples as close as 3 weeks out, and we just adjust expectations accordingly. The sooner you book, the more flexibility we have with scheduling.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Can you work with any song?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! I've choreographed dances to everything from Ed Sheeran ballads to country classics to 80s power ballads. If you haven't chosen your song yet, I can help you pick one that fits your vibe and is dance-friendly. Some songs work better than others, but I can make almost any song work with the right approach.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What if one of us is more experienced than the other?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Very common! I'll create choreography that plays to both of your strengths. The more experienced partner might get a few extra flourishes, while I'll make sure the less experienced partner has moves they feel confident with. The goal is for both of you to shine and feel comfortable.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Do you offer lessons for parent dances too?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! Mother-son and father-daughter dances are special moments too. I offer single sessions or mini-packages specifically for parent dances. We can keep it simple and elegant, or add a fun surprise element, whatever fits your relationship and comfort level.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Investment</h2>
-                <div class="flourish"><span class="flourish-icon">&#10022;</span></div>
-                <p>Every couple is different, so let's build a package that fits your timeline, budget, and goals</p>
-            </div>
-            <div class="pricing-simple fade-in">
-                <div class="pricing-highlight">
-                    <p class="pricing-starting">Lessons starting at</p>
-                    <div class="price-display">$90 <span>/ 45 min</span></div>
-                    <p class="pricing-or">or</p>
-                    <div class="price-display">$120 <span>/ hour</span></div>
-                </div>
-                <div class="pricing-includes">
-                    <h3>What's Included</h3>
-                    <ul>
-                        <li>Custom choreography tailored to your song</li>
-                        <li>Patient, step-by-step instruction for all skill levels</li>
-                        <li>Practice videos to take home</li>
-                        <li>Flexible scheduling around your busy lives</li>
-                        <li>A stress-free, fun experience (I promise!)</li>
-                    </ul>
-                </div>
-                <div class="lesson-formats">
-                    <h3>Lessons Your Way</h3>
-                    <div class="formats-grid">
-                        <div class="format">
-                            <div class="format-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                            </div>
-                            <h4>In-Home</h4>
-                            <p>I come to you. Learn in the comfort and privacy of your own space.</p>
-                        </div>
-                        <div class="format">
-                            <div class="format-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 8V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h8"/><path d="M10 19v-3.96 3.15"/><path d="M7 19h5"/><rect width="10" height="8" x="12" y="12" rx="2"/></svg>
-                            </div>
-                            <h4>Studio</h4>
-                            <p>Professional floors and mirrors at partner studios across Austin.</p>
-                        </div>
-                        <div class="format">
-                            <div class="format-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                            </div>
-                            <h4>Virtual</h4>
-                            <p>Not local? No problem. I've taught couples from around the world via video.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="inclusive-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                    <span>All Couples Welcome</span>
-                    <span class="badge-subtitle">LGBTQ+ Friendly</span>
-                </div>
-                <div class="pricing-cta">
-                    <p>Most couples book 4-6 sessions, but whether you need 2 lessons or 10, I'll create a plan that works for you.</p>
-                    <a href="#contact" class="btn">Get Your Custom Quote</a>
                 </div>
             </div>
         </div>
@@ -1429,8 +121,8 @@
         <div class="container">
             <div class="contact-content fade-in">
                 <div class="contact-info">
-                    <h3>Let's Create Your First Dance</h3>
-                    <p>Ready to start planning? I'd love to hear about your wedding and your vision for your first dance. Reach out and let's make it happen.</p>
+                    <h3>Let's Get You Dancing</h3>
+                    <p>Not sure which path is right for you? Just reach out. Tell me a little about what you're hoping to learn (or the wedding you're planning) and I'll help you figure out the best place to start.</p>
                     <div class="contact-details">
                         <a href="mailto:whitely.nolan@gmail.com">whitely.nolan@gmail.com</a>
                         <!-- Add Google Voice number here when ready: <a href="tel:+1XXXXXXXXXX">(512) XXX-XXXX</a> -->
@@ -1439,24 +131,35 @@
                     <p><strong>Response time:</strong> I typically respond within 24 hours.</p>
                 </div>
                 <div class="contact-form">
-                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <!-- Web3Forms: submissions delivered to whitely.nolan@gmail.com -->
+                    <form class="web3-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="0758811d-08f9-4821-9109-8639d044abcf">
+                        <input type="hidden" name="subject" value="New inquiry from Dance by Nolan">
+                        <input type="hidden" name="from_name" value="Dance by Nolan">
+                        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <div class="form-group">
-                            <label for="name">Your Names</label>
-                            <input type="text" id="name" name="name" required placeholder="e.g., Sarah & Michael">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="e.g., Sarah (or Sarah &amp; Michael)">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" required placeholder="your@email.com">
                         </div>
                         <div class="form-group">
-                            <label for="date">Wedding Date</label>
-                            <input type="text" id="date" name="wedding_date" placeholder="e.g., October 15, 2025">
+                            <label for="interest">I'm Interested In</label>
+                            <select id="interest" name="interest">
+                                <option>Wedding First Dance</option>
+                                <option>Dance Lessons (Beginner)</option>
+                                <option>Dance Lessons (Social / Experienced)</option>
+                                <option>Not Sure Yet</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="message">Tell Me About Your Vision</label>
-                            <textarea id="message" name="message" placeholder="What song are you considering? Any ideas for your dance?"></textarea>
+                            <label for="message">Tell Me What You Have in Mind</label>
+                            <textarea id="message" name="message" placeholder="What would you like to learn? Any songs, styles, or dates I should know about?"></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
+                        <div class="form-result" role="status" aria-live="polite" hidden></div>
                     </form>
                 </div>
             </div>
@@ -1465,124 +168,20 @@
 
     <!-- Footer -->
     <footer>
-        <a href="#" class="logo">First Dance by Nolan</a>
+        <a href="index.html" class="logo">Dance by Nolan</a>
+        <ul class="footer-links" style="list-style:none;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="wedding-services.html">Weddings</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
         <div class="social-links">
             <a href="https://instagram.com/nolan.whitely" target="_blank" rel="noopener">Instagram</a>
         </div>
-        <p>&copy; 2026 First Dance by Nolan. All rights reserved.</p>
+        <p>&copy; 2026 Dance by Nolan. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Navbar scroll effect & scroll progress bar
-        const navbar = document.getElementById('navbar');
-        const scrollProgress = document.getElementById('scrollProgress');
-
-        window.addEventListener('scroll', () => {
-            // Navbar shadow
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Scroll progress bar
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = scrollPercent + '%';
-        });
-
-        // Fade-in animations on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in, .fade-in-stagger').forEach(el => {
-            fadeObserver.observe(el);
-        });
-
-        // Active nav link highlighting
-        const sections = document.querySelectorAll('section[id]');
-        const navLinksAll = document.querySelectorAll('.nav-links a');
-
-        const highlightNav = () => {
-            const scrollPos = window.scrollY + 100;
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                    navLinksAll.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === '#' + sectionId) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        };
-
-        window.addEventListener('scroll', highlightNav);
-        highlightNav();
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                const isActive = item.classList.contains('active');
-
-                // Close all other items
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-
-                // Toggle current item
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scroll for anchor links (fallback for browsers without CSS smooth scroll)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
