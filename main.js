@@ -148,3 +148,56 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Gallery lightbox — click any gallery image to view it full-size.
+// Builds one overlay and reuses it; no per-page markup needed.
+(function () {
+    const galleryImgs = document.querySelectorAll('.gallery-item img');
+    if (!galleryImgs.length) return;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.innerHTML =
+        '<button class="lightbox-close" aria-label="Close">&times;</button>' +
+        '<img alt="">' +
+        '<div class="lightbox-caption"></div>';
+    document.body.appendChild(lightbox);
+
+    const lbImg = lightbox.querySelector('img');
+    const lbCaption = lightbox.querySelector('.lightbox-caption');
+    const lbClose = lightbox.querySelector('.lightbox-close');
+
+    function openLightbox(src, alt, caption) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lbCaption.textContent = caption || '';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    galleryImgs.forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', () => {
+            // Prefer a higher-res version if the URL carries a width param
+            const fullSrc = img.src.replace(/([?&]w=)\d+/, '$11600');
+            const overlay = img.closest('.gallery-item').querySelector('.gallery-item-overlay');
+            const caption = overlay ? overlay.textContent.trim().replace(/\s+/g, ' ') : img.alt;
+            openLightbox(fullSrc, img.alt, caption);
+        });
+    });
+
+    lbClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+    });
+})();

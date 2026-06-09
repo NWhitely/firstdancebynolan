@@ -1,1 +1,5 @@
 .DS_Store
+# Source uploads kept locally as backups, not served (optimized .jpg/.mp4 are committed instead)
+assets/*.png
+*.MP4
+*.mov
