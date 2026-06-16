@@ -1,13 +1,20 @@
-# Dance by Nolan — project notes
+# Nolan Wayne Dance — project notes
 
-Single-page-per-section marketing site for **Dance by Nolan**, a dance instruction
+Brand: **Nolan Wayne Dance** (nolanwaynedance.com, @nolanwaynedance). Formerly
+"Dance by Nolan" / dancebynolan.com, which now 301-forwards here. The instructor goes
+by **Nolan Wayne** across both dance and founder work (one public persona); legal name
+Nolan Whitely is kept off the public site. No public email is shown on the site or in
+graphics: the contact form (Web3Forms) is the only contact path.
+
+Single-page-per-section marketing site for **Nolan Wayne Dance**, a dance instruction
 and wedding first-dance choreography business in Austin, TX. Owner/instructor: Nolan
-(stage name "Nolan Wayne", legal name Nolan Whitely).
+Wayne (legal name Nolan Whitely).
 
 - Static site, plain HTML/CSS/JS. No build step. Hosted on a custom domain (see `CNAME`).
 - Pages: `index.html` (home, split hero), `wedding-services.html` (weddings),
   `lessons.html` (dance lessons). Shared `styles.css` and `main.js`.
-- Contact forms use **Web3Forms** (submissions go to whitely.nolan@gmail.com).
+- Contact forms use **Web3Forms** (delivered to the owner's inbox; the receiving
+  address is configured in Web3Forms via `access_key`, not shown on the site).
 
 ---
 
