@@ -3,3 +3,5 @@
 assets/*.png
 *.MP4
 *.mov
+/_masters/
+**/.DS_Store

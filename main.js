@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Dance by Nolan — shared interactions
+   Nolan Wayne Dance, shared interactions
    Loaded on every page (home, weddings, lessons).
    Safe to load on pages that don't have every element (guards included).
    ========================================================================== */
@@ -81,7 +81,7 @@ document.querySelectorAll('.faq-question').forEach(button => {
     });
 });
 
-// Web3Forms contact forms — AJAX submit with inline success/error message
+// Web3Forms contact forms: AJAX submit with inline success/error message
 // (keeps the visitor on the page instead of redirecting to Web3Forms)
 document.querySelectorAll('form.web3-form').forEach(form => {
     const result = form.querySelector('.form-result');
@@ -112,7 +112,7 @@ document.querySelectorAll('form.web3-form').forEach(form => {
             if (response.ok && data.success) {
                 if (result) {
                     result.className = 'form-result success';
-                    result.textContent = "Thank you! Your message is on its way. I'll be in touch soon.";
+                    result.textContent = form.dataset.success || "Thank you! Your message is on its way. I'll be in touch soon.";
                 }
                 form.reset();
             } else {
@@ -141,15 +141,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(href);
         if (target) {
             e.preventDefault();
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            if (window.__lenis) {
+                window.__lenis.scrollTo(target, { offset: -64, duration: 1.6 });
+            } else {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
 });
 
-// Gallery lightbox — click any gallery image to view it full-size.
+// Gallery lightbox: click any gallery image to view it full-size.
 // Builds one overlay and reuses it; no per-page markup needed.
 (function () {
     const galleryImgs = document.querySelectorAll('.gallery-item img');
@@ -200,4 +201,86 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
     });
+})();
+
+/* ==========================================================================
+   Theme toggle — follows system by default; an explicit choice persists.
+   (A tiny inline script in <head> applies the saved choice before paint.)
+   ========================================================================== */
+(function () {
+    const root = document.documentElement;
+    const KEY = 'nwd-theme';
+    const toggle = document.getElementById('themeToggle');
+    const mq = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+
+    function isDark() {
+        const set = root.getAttribute('data-theme');
+        if (set === 'dark') return true;
+        if (set === 'light') return false;
+        return !!(mq && mq.matches);
+    }
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const next = isDark() ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem(KEY, next); } catch (e) {}
+            if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+        });
+    }
+    // Keep following the system live until the visitor makes a choice.
+    if (mq) {
+        mq.addEventListener('change', () => {
+            let saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+            if (!saved) root.removeAttribute('data-theme');
+        });
+    }
+})();
+
+/* ==========================================================================
+   Cinematic motion — Lenis smooth scroll + GSAP ScrollTrigger.
+   Progressive enhancement: if libs are missing or reduced-motion is set,
+   we bail and the IntersectionObserver fade-ins above carry the page.
+   ========================================================================== */
+(function () {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+    // NOTE: reveals are handled by the reliable IntersectionObserver above
+    // (.fade-in / .fade-in-stagger). GSAP is used ONLY for non-destructive
+    // enhancements here, so nothing can ever get stuck invisible.
+
+    const nav = document.getElementById('navbar');
+
+    // Smooth scroll with a long, glassy glide (low lerp = more glide).
+    if (window.Lenis) {
+        const lenis = new Lenis({ lerp: 0.05, wheelMultiplier: 1, smoothWheel: true, autoRaf: false });
+        window.__lenis = lenis;
+        function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        let last = 0;
+        lenis.on('scroll', ({ scroll }) => {
+            if (nav) {
+                if (scroll > 140 && scroll > last) nav.classList.add('nav-hidden');
+                else nav.classList.remove('nav-hidden');
+            }
+            last = scroll;
+        });
+    }
+
+    // GSAP parallax — enhancement only (if it no-ops, images simply sit still).
+    if (window.gsap && window.ScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        if (window.__lenis) window.__lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.utils.toArray('.split-panel-bg').forEach((bg) => {
+            gsap.fromTo(bg, { yPercent: -8 }, {
+                yPercent: 8, ease: 'none',
+                scrollTrigger: { trigger: bg.closest('.split-panel') || bg, start: 'top bottom', end: 'bottom top', scrub: true }
+            });
+        });
+
+        const refresh = () => ScrollTrigger.refresh();
+        window.addEventListener('load', refresh);
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
+    }
 })();

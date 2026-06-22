@@ -1,9 +1,11 @@
-# Dance by Nolan
+# Nolan Wayne Dance
 
-Marketing website for **Dance by Nolan** — beginner-friendly dance instruction in
+Marketing website for **Nolan Wayne Dance**, beginner-friendly dance instruction in
 Austin, TX by Nolan Wayne (of *Dancing with the Stars Austin*). The site serves two
-audiences: wedding couples planning a first dance, and beginners / dance-curious folks
+audiences: wedding couples planning a first dance, and beginners or dance-curious folks
 who want private lessons in Ballroom, Country, Swing, and more.
+
+Formerly *Dance by Nolan* (and originally *First Dance by Nolan*).
 
 Static HTML/CSS/JS, hosted on GitHub Pages. No build step.
 
@@ -14,12 +16,14 @@ This is a multi-page site sharing one stylesheet and one script for a consistent
 | File                    | Purpose |
 |-------------------------|---------|
 | `index.html`            | **Home / landing.** Split-path hero sending visitors to either Weddings or Lessons. Leads with approachability + DWTS Austin credibility. |
-| `wedding-services.html` | **Weddings.** The wedding first-dance page (how-it-works, testimonials, gallery, wedding FAQ, pricing, contact). `firstdancebynolan.com` forwards here. |
+| `wedding-services.html` | **Weddings.** The wedding first-dance page (how-it-works, testimonials, gallery, wedding FAQ, pricing, contact). |
 | `lessons.html`          | **Lessons.** General, beginner-focused lessons across genres. Country also serves experienced/social dancers (Nolan competed at top levels in country-western). |
 | `styles.css`            | Shared styles for all pages (palette, typography, components). |
-| `main.js`               | Shared interactions (mobile menu, scroll progress, fade-ins, FAQ accordion, smooth scroll). |
-| `assets/`               | Images (e.g. `nolan-headshot.jpg`). |
-| `CNAME`                 | GitHub Pages custom domain. |
+| `main.js`               | Shared interactions (mobile menu, scroll progress, fade-ins, FAQ accordion, smooth scroll, contact + testimonial form handler). |
+| `assets/`               | Images and video (headshot, wedding/lesson photos, competition photos, country-western clips). |
+| `CNAME`                 | GitHub Pages custom domain (`nolanwaynedance.com`). |
+
+The repo root also holds off-site Facebook Marketplace graphics (`marketplace-image-nolanwayne.jpg`, `marketplace-country.jpg`). These are listing assets, not part of the website.
 
 ### Shared design system
 - **Palette:** gold accent `#c9a87c` on a warm off-white (`#fffcf8`).
@@ -30,12 +34,12 @@ This is a multi-page site sharing one stylesheet and one script for a consistent
 
 ## Domains & redirect
 
-- **Primary brand domain:** `dancebynolan.com` (the rebrand). This is the live GitHub
-  Pages domain — see `CNAME`.
-- **Legacy domain:** `firstdancebynolan.com` → **URL-forwards to `dancebynolan.com`**
-  (configured at the registrar). ✅ Live.
+- **Primary brand domain:** `nolanwaynedance.com`. This is the live GitHub Pages
+  domain; see `CNAME`.
+- **Forwarding domains:** `dancebynolan.com` and `firstdancebynolan.com` both
+  URL-forward to `nolanwaynedance.com` (configured at the registrar). ✅ Live.
 
-> ⚠️ **The legacy redirect is configured at the domain registrar (URL forwarding),
+> ⚠️ **The legacy forwards are configured at the domain registrar (URL forwarding),
 > NOT in this repo.** GitHub Pages can't do a true cross-domain redirect, so there is
 > intentionally no redirect code here.
 
@@ -49,9 +53,10 @@ python3 -m http.server 8000
 ```
 
 ## Pending tasks
-- [x] Point `dancebynolan.com` DNS at GitHub Pages and update `CNAME`.
-- [x] Configure `firstdancebynolan.com` → `dancebynolan.com` forward at registrar.
-- [ ] Replace `YOUR_FORM_ID` in the contact forms with the real Formspree endpoint.
-- [ ] Add Google Voice number to contact sections (placeholder comment in each form).
-- [ ] Replace gallery / placeholder images and stock hero video with original footage.
-- [ ] Swap placeholder testimonials for real reviews.
+- [x] Point the brand domain DNS at GitHub Pages and update `CNAME` (now `nolanwaynedance.com`).
+- [x] Configure `dancebynolan.com` and `firstdancebynolan.com` forwards at the registrar.
+- [x] Wire up the contact form (Web3Forms; form-only, no public email).
+- [ ] Regenerate `og-image.jpg` to reflect the Nolan Wayne Dance brand (still shows the old brand).
+- [ ] Add a phone number to the contact sections (currently form-only).
+- [ ] Replace seeded/illustrative testimonials with real reviews as the form collects them.
+- [ ] Swap the stock hero background video for original footage.

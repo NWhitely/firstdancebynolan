@@ -49,7 +49,11 @@ These read as AI. Avoid them entirely:
 - A little looseness is good: contractions, the occasional fragment, a real aside in
   parentheses. It should sound spoken, not brochure-polished.
 - Lead with the beginner / low-pressure / no-judgment angle — that's the core pitch.
-- Keep "As seen on Dancing with the Stars Austin" as the one credibility line.
+- "As seen on Dancing with the Stars Austin" is a fine credibility line **on the website**,
+  where there's room to explain it (it's a Center for Child Protection charity fundraiser
+  that's raised $2M+/yr, not the TV show). Keep it OFF standalone marketplace cards/graphics:
+  with no context a stranger reads it as the TV show and feels misled. On cards, use proof
+  tied to the piece instead (e.g. a competition result + event, "10+ years teaching").
 
 ## Leave alone
 
