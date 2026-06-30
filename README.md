@@ -23,11 +23,11 @@ This is a multi-page site sharing one stylesheet and one script for a consistent
 | `assets/`               | Images and video (headshot, wedding/lesson photos, competition photos, country-western clips). |
 | `CNAME`                 | GitHub Pages custom domain (`nolanwaynedance.com`). |
 
-The repo root also holds off-site Facebook Marketplace graphics (`marketplace-image-nolanwayne.jpg`, `marketplace-country.jpg`). These are listing assets, not part of the website.
+The repo root also holds off-site **promo graphics** for Instagram/Facebook + the website (`promo-{country,wedding,lessons,social}.jpg` plus `-9x16` story versions), captions in `social-captions.md`. For Facebook Marketplace, use the plain listing `marketplace-listing-wedding.md` with a real photo (and the de-flagged `marketplace-wedding-safe.jpg` as a second image), not the branded cards. None of these are part of the website.
 
 ### Shared design system
 - **Palette:** gold accent `#c9a87c` on a warm off-white (`#fffcf8`).
-- **Type:** Cormorant Garamond (headings) + Montserrat (body).
+- **Type:** Fraunces (headings) + Montserrat (body).
 - **Components:** hero, cards, testimonials, pricing, lesson formats, inclusive
   (LGBTQ+ friendly) badge, "As Featured In", FAQ accordion, contact form.
 - **Nav (every page):** Home · Weddings · Lessons · About · Contact.

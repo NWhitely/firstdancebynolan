@@ -284,3 +284,63 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (document.fonts && document.fonts.ready) document.fonts.ready.then(refresh);
     }
 })();
+
+/* ==========================================================================
+   Testimonials: "See more reviews" expander (curated 6 + reveal the rest)
+   ========================================================================== */
+document.querySelectorAll('.reviews-more').forEach((btn) => {
+    const section = btn.closest('.testimonials');
+    const grid = section && section.querySelector('.testimonial-grid');
+    if (!grid) return;
+    const extras = grid.querySelectorAll('.testimonial.is-extra').length;
+    if (!extras) { const w = btn.closest('.reviews-more-wrap'); if (w) w.style.display = 'none'; return; }
+    const label = 'See ' + extras + ' more reviews';
+    btn.textContent = label;
+    btn.addEventListener('click', () => {
+        const open = grid.classList.toggle('reviews-open');
+        btn.textContent = open ? 'Show fewer' : label;
+        if (!open) {
+            if (window.__lenis) window.__lenis.scrollTo(section, { offset: -64 });
+            else section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+/* ==========================================================================
+   Mobile: animated side-by-side split hero (auto-alternating expand).
+   Desktop keeps its hover-to-expand; this is the touch equivalent.
+   ========================================================================== */
+(function () {
+    const hero = document.querySelector('.split-hero');
+    if (!hero) return;
+    const panels = [...hero.querySelectorAll('.split-panel')];
+    if (panels.length < 2) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const mq = window.matchMedia('(max-width: 768px)');
+    let i = 0, timer = null, io = null;
+
+    const show = (n) => panels.forEach((p, idx) => p.classList.toggle('is-active', idx === n));
+    const stop = () => { clearInterval(timer); timer = null; };
+    function start() {
+        if (reduce) { show(0); return; }      // one expanded, no motion
+        if (timer) return;
+        show(i);
+        timer = setInterval(() => { i = (i + 1) % panels.length; show(i); }, 4200);
+    }
+    function apply() {
+        stop();
+        if (mq.matches) {
+            start();
+            if (!io) {
+                io = new IntersectionObserver((es) => es.forEach(e => e.isIntersecting ? start() : stop()));
+                io.observe(hero);
+            }
+        } else {
+            if (io) { io.disconnect(); io = null; }
+            panels.forEach(p => p.classList.remove('is-active'));
+        }
+    }
+    apply();
+    mq.addEventListener('change', apply);
+})();

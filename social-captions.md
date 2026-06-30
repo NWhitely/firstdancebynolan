@@ -1,21 +1,22 @@
-# Marketplace listings — paste-ready
+# Social captions — paste-ready
 
-Three listings, one per card. Each has a **Title** (what people search), a **Description**
-(your voice), and notes. Set a price before you post (see Pricing at the bottom).
+Captions for **Instagram and Facebook posts/stories** (and reusable as website copy), one per
+promo card. Each has a **hook/title** and a **description** in your voice.
 
-Pair each with its image (square for Marketplace, `-9x16` for stories/reels):
-- Country → `marketplace-country.jpg`
-- Wedding → `marketplace-wedding.jpg`
-- General → `marketplace-image-nolanwayne.jpg`
-- Social / older beginner → `marketplace-social.jpg`
+Pair each with its promo card (square for feed, `-9x16` for stories/reels):
+- Country → `promo-country.jpg` / `promo-country-9x16.jpg`
+- Wedding → `promo-wedding.jpg` / `promo-wedding-9x16.jpg`
+- General → `promo-lessons.jpg` / `promo-lessons-9x16.jpg`
+- Social / older beginner → `promo-social.jpg` / `promo-social-9x16.jpg`
 
-**The hook is a free intro lesson.** The cards now show a "Book a FREE Introductory Lesson"
-button, so FREE lives on the art. Keep the *price* and any *dated promo* OFF the art so the
-images never expire. Set the Marketplace price field to $90 (shows in filters, signals a real
-service). The dated "new student special" goes in the listing text below — when the deadline
-passes you edit one line, not five images. See Pricing at the bottom.
+> **NOT for Facebook Marketplace.** The branded promo cards (website URL, @handle, FREE button)
+> trip Marketplace's off-platform-ad filter and get listings pulled (see CHANGELOG 2026-06-30).
+> For Marketplace, use a real un-designed photo with the plain low-flag listing in
+> `marketplace-listing-wedding.md` ($90 in the price field, no URL/handle, contact kept
+> on-platform). These captions and the free-intro hook are fine for **Instagram / Facebook feed
+> + the website**, just not Marketplace.
 
-> **Current promo line (paste as the first line of each listing, update the date monthly):**
+> **Current promo line (first line of each caption; update the date):**
 > New student special: your first lesson is free, now through June 30. Booking now.
 
 ---
@@ -118,22 +119,22 @@ nolanwaynedance.com · @nolanwaynedance
 
 ## Pricing & the offer
 
-- **Card art: FREE button yes, price/date no.** The "Book a FREE Introductory Lesson" button
-  is on the art (FREE never expires). Keep the $90 and the dated deadline off it so the images
-  stay evergreen — the deadline lives in the listing text where you edit one line a month.
-- **Marketplace price field: $90.** It has to be a number, and $90 shows in search filters
-  and signals a real, professional service (not a hobbyist). Your rate is $90 / 45 min.
-- **The hook is the free first lesson**, written into every description above. For a beginner,
-  "first one's free" beats any number, and a no-risk first lesson is a cheap way to get a
-  recurring client in the door. Quote the $90 rate in conversation, after they've met you.
+- **The hook is the free first lesson**, in the first line of every caption. For a beginner,
+  "first one's free" beats any number; a no-risk first lesson is a cheap way to get a recurring
+  client in the door. Quote the $90 / 45 min rate in conversation, after they've met you.
+- **Don't post a price on Instagram/Facebook posts** — the free intro is the pull. (On
+  Marketplace it's different: the real $90 goes in the price field. See
+  `marketplace-listing-wedding.md`.)
+- **The promo cards already show the FREE button**, so FREE is on the art; the dated deadline
+  stays in the caption text, where you edit one line when it changes.
 - **Alternatives if a full free lesson feels like too much to give away:**
-  - *Free consult* — a quick 10-15 min call instead of a full lesson. Lower cost to you, still
-    low-friction for them. Swap "free intro lesson" → "free intro call."
+  - *Free consult* — a quick 10-15 min call instead of a full lesson. Swap "free intro lesson"
+    → "free intro call."
   - *New-student special* — e.g. first lesson half off ($45). Paid, but still a hook.
-  - Tell me which you want and I'll reword the four descriptions to match.
 
-## Posting tips
-- Post the four as **separate listings**, not one. Each targets a different search.
-- Re-list every week or two (Marketplace buries old posts). Same image, same text is fine.
-- Categories: "Classes" or "Other" depending on what FB offers locally.
-- Use the square images on Marketplace; use the `-9x16` versions for IG/FB stories and reels.
+## Posting tips (Instagram / Facebook)
+- Post the four to the feed; use the `-9x16` versions for stories and reels.
+- **Mix it up** — don't make every post a sell. Alternate these with real content (student
+  clips, you dancing, a quick tip) so the offers land as part of the picture, not the whole feed.
+- Vary the caption wording when you re-post so it doesn't read as a copy-paste ad.
+- **For Facebook Marketplace, do NOT use these cards or this copy** — use `marketplace-listing-wedding.md`.

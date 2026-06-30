@@ -69,3 +69,40 @@ like", "yeah okay". Not formal. When in doubt, plainer and more spoken is better
 > **Writing samples go here.** Nolan to paste a few real samples (texts, captions,
 > emails). Until then, mirror the tone above. Once samples exist, update this section
 > with the specific patterns (sentence length, punctuation, recurring words).
+
+---
+
+# Local preview & screenshots (how to "view" the rendered site)
+
+Claude can't watch a live browser window — it "sees" the site by rendering it in
+**headless Chromium (Playwright)** and capturing screenshots, then reading the PNGs.
+"Take a screenshot" = "look at the page via the Chromium we set up." There is no live feed.
+
+**1. Serve the static site (background):**
+```
+python3 -m http.server 8765 --directory /Users/nolan/Documents/FirstDanceByNolan
+```
+
+**2. Playwright + Chromium** live under `/tmp/nwdshot` (browser binary cached in
+`~/Library/Caches/ms-playwright`, which survives reboots; `/tmp/nwdshot` may not).
+If `/tmp/nwdshot/node_modules/playwright` is missing, reinstall:
+```
+mkdir -p /tmp/nwdshot && npm i --prefix /tmp/nwdshot playwright && \
+  /tmp/nwdshot/node_modules/.bin/playwright install chromium
+```
+
+**3. Screenshot script** (run with `node` from `/tmp/nwdshot`):
+```js
+const { chromium } = require('/tmp/nwdshot/node_modules/playwright');
+const b = await chromium.launch();
+const ctx = await b.newContext({ viewport:{width:1440,height:820}, colorScheme:'dark', isMobile:false });
+const p = await ctx.newPage();
+await p.goto('http://localhost:8765/wedding-services.html', { waitUntil:'load' });
+await p.waitForTimeout(900);
+await p.screenshot({ path:'shots/out.png', fullPage:true });
+await b.close();
+```
+Then **Read** the PNG to view it. Useful flags:
+- Light/dark: `colorScheme:'light'|'dark'`. Mobile: `viewport:{width:390,height:844}, deviceScaleFactor:2, isMobile:true`.
+- Full-page LAYOUT check: inject `addStyleTag({content:'.reveal,.fade-in,.fade-in-stagger>*{opacity:1!important;transform:none!important}'})` so below-fold reveal content shows.
+- To test the REAL scroll-reveal behavior (catch blank/stuck sections), do NOT force visibility; use `page.mouse.wheel(0, N)` then screenshot.

@@ -2,6 +2,69 @@
 
 All notable changes to the Nolan Wayne Dance website (formerly Dance by Nolan, originally First Dance by Nolan).
 
+## 2026-06-30
+
+### Facebook Marketplace takedown fix (wedding listing)
+Wedding listings were passing Marketplace's initial scan but getting pulled 24-48hrs later by the second-pass review. Diagnosed the cause as the listing photo: we were posting the branded card (now `promo-wedding.jpg`, renamed below), which is a designed flyer with a website URL, an `@handle`, and a "Book a FREE Introductory Lesson" button on it. The heavier second-pass classifier reads that as an off-platform ad and removes it. Two more flags compounded it: a "Free"/$0 price on a service (lead-gen signature) and "message me for details" with no real description (vague off-platform redirect pattern).
+
+- **`marketplace-listing-wedding.md` (new):** a Marketplace-specific, low-flag listing kit, separate from the promo-card system. Plain literal title ("Wedding First Dance Lessons in Austin TX"), the real $90 in the price field instead of "Free," and a written-out first-person description (beginner/low-pressure angle, what it is, where, how it works) that ends by asking them to message their song + date — kept inside FB messaging, no URL/handle/phone in the listing.
+- **Photo guidance:** use a real, un-designed photo, not the branded card. Recommended `assets/hollingsworth-2.jpg` (a real couple's first dance at a venue, phone-shot; `hollingsworth-1.jpg` as a second), and flagged the polished b&w editorial shots (`photo1`, `photo5`, `photo7`) to avoid since they read as stock.
+- **Posting habits:** don't repost identical listings (trains the spam classifier), renew/edit instead, keep contact on-platform until they message. Noted the branded cards still belong on Instagram/the website, just not on Marketplace.
+- **Honest framing:** the photo is the biggest single fix but not a guarantee on its own — the real photo, real price, and real description work as a set; services are only loosely allowed on Marketplace and a competitor report can still trigger a takedown.
+- **`make_marketplace_safe_card.py` + `marketplace-wedding-safe.jpg` (new):** a de-flagged branded card to use as the *second* photo (never the lead), so the listing still carries Nolan's identity without leading with the trigger. Same dark/gold house style, but the three off-platform-ad triggers are removed (no URL, no @handle, no "Book a FREE" button); keeps the name, "Wedding Dance Lessons," Austin, the Waltz/Country/Swing/Slow Dance styles, and the "10+ years" credential. The `marketplace-` prefix is correct under the new naming (it genuinely is a Marketplace asset, unlike the `promo-*` cards). Listing order: real photo first (`assets/hollingsworth-2.jpg`), safe card second.
+- **Restored Fraunces + Montserrat:** the original Pillow compositor lived in `/tmp` and was lost when tmp cleared (only Didot/Avenir remained on the system). Re-downloaded the variable fonts from Google Fonts into `fonts/` so the card matches the site's type system (Fraunces opsz=144 / wght~470 display headline, Montserrat letterspaced labels). The new compositor lives in the repo so it won't vanish with tmp again.
+
+### Renamed the branded cards to `promo-*` (these are not Marketplace assets)
+Following the takedown diagnosis: the eight branded card images were named `marketplace-*`, which actively invited the exact mistake (posting the branded card to Marketplace) that gets listings pulled. Renamed to reflect their real role as Instagram / Facebook feed + website graphics.
+
+- The four squares and four `-9x16` stories (`marketplace-{country,wedding,social}.jpg`, `marketplace-image-nolanwayne.jpg`, `marketplace-*-9x16.jpg`) became **`promo-{country,wedding,lessons,social}.jpg`** and `promo-*-9x16.jpg`. No site HTML/CSS references them, so nothing broke.
+- `marketplace-listings.md` became **`social-captions.md`** and was reframed from "Marketplace listings" to Instagram/Facebook captions for the promo cards, with a banner up top: these branded cards and the free-intro/CTA copy are for IG/FB feed + the website, NOT Marketplace (for Marketplace, use the plain low-flag listing in `marketplace-listing-wedding.md`). The old name was also confusingly close to that file.
+- The promo cards carry the final copy: the `[X] Dance Lessons` headlines (see 2026-06-24), Fraunces type, and the "10+ years teaching & competing" footer.
+
+### Testimonials: realistic voice + curated "see more" expander
+- Rewrote all ~30 placeholder testimonials from polished/copywritten to plain, real-person voice, with deliberate **variance**: scrappy one-liners ("10/10. so fun.", "best decision… besides the open bar"), plain mediums, and a few longer heartfelt/grateful/formal ones (the grandmother-waltz, "thank you, Nolan, truly," the in-her-60s beginner). An all-casual wall read fake; the spread reads real. First pass over-flattened everything to casual, then re-introduced the long/thankful range.
+- **Curated display:** wedding and lessons now show **6 by default**, with a "See N more reviews" button that expands inline to the full set and toggles to "Show fewer" (glides back to the section top on collapse). The visible 6 are chosen for *range* (one-liner + mediums + a heartfelt-long) and to cover beginner / experienced / virtual, not just the first 6. Mobile keeps the swipe carousel; the button feeds extras into it. Home stays a 2–3 teaser. `.testimonial.is-extra` hides the rest; the button auto-hides if a page ever has ≤6.
+
+### Cinematic heroes + scroll reliability
+- **Lessons hero** rebuilt as a cinematic ambient stage (vertical country-swing reel centered + a blurred/dimmed copy filling the width), matching the wedding hero. Dropped "Austin, TX" from both hero eyebrows (it's established everywhere else).
+- **Blank-page bug fix (important):** the GSAP ScrollTrigger reveals were setting whole sections to opacity 0 and not firing reliably under Lenis, so large stretches rendered blank after scrolling. Reverted all reveals to the dependable **IntersectionObserver** layer (which can't get stuck); GSAP is now limited to non-destructive parallax. Caught only by testing with motion on (earlier screenshots had force-shown the content, masking it).
+- **More glide:** Lenis `lerp` 0.09 → **0.05** (longer, glassier). Nav anchor links now glide via `lenis.scrollTo` instead of jumping.
+
+### Home hero
+- Taller, more immersive panels (near-full-screen on mobile).
+- **Animated mobile split:** instead of a vertical stack, the two panels stay **side by side and auto-alternate** which one is expanded (active panel shows full content; the other slims to a title-only teaser strip, swapping every ~4s). The touch equivalent of the desktop hover-to-expand. Respects reduced-motion (one expanded, no cycling) and pauses when scrolled out of view.
+- **Transparent overlay nav:** transparent over the hero with light, shadowed text; solidifies to a glass bar on scroll (still hides on scroll-down). Applies across all three heroes.
+- **Light-mode eyebrow fix:** the panel eyebrow used the theme gold, which went near-invisible in light mode; switched to the bright non-flipping `--gold-light` with a shadow so it pops in both themes.
+
+### Copy
+- **Lessons "How It Works"** rewritten to a service voice (dropped "I / we / my students" for "you" and the process).
+- Cut the fluff sentence ("the same patient, step-by-step coaching… brightest lights") from the home Dancing with the Stars feature; it states the fact now.
+
+### Polish audit (template-tell cleanup)
+- Genre-level **pill chips** → flat letterspaced labels; genre cards de-boxed (single gold top rule, no hover-lift). Pricing "$90 / What's Included" **de-carded** to hairline-separated blocks. "As Featured In" unified to a muted press row. Buttons made flat-editorial (no glow / lift / pulse). The "All Couples/Dancers Welcome" badge de-carded to a hairline mark.
+
+### Housekeeping
+- Moved ~145MB of unused raw masters (original `.MP4`/`.MOV`/`.HEIC` plus `photoN.png` duplicates the site doesn't load) into an ignored **`_masters/`** folder; `assets/` dropped to ~27MB and is push-ready. `.gitignore` updated.
+- Documented the **local preview + headless-Chromium screenshot workflow** in `CLAUDE.md` (server command, Chromium reinstall, screenshot-script pattern) so it's reusable next session.
+
+## 2026-06-24
+
+### Marketplace card system (off-site marketing, major expansion)
+Grew the two early Marketplace graphics (see 2026-06-22) into a four-angle system, each card aimed at a distinct market, plus a 9:16 story/reel version of each (8 images total). Built with a Python/Pillow compositor (gold-framed, dark cinematic house style); listing assets live in the repo root and are not embedded in the website.
+
+- **Per-market strategy ("empty pond"):** the cards target people who do not dance yet but have a reason to start (a wedding, a night out, social/later-in-life), not the saturated existing-dancer community. Each card gets its own photo, headline, and recognizable styles; insider jargon is kept as quiet proof, never the hook.
+- **Parallel headline format:** all four headlines are the service name and end in "Lessons" (Dance Lessons / Wedding Dance Lessons / Country Dance Lessons / Social Dance Lessons), so the set looks deliberate and each is searchable; the engaging hook lives in the subheading below, not the headline.
+  - `marketplace-country.jpg`: "Country Dance Lessons" (sub: "Learn to two-step before your next night out"), over the two-step dip photo. Big line "TWO-STEP & COUNTRY SWING" (the recognizable bar styles); the 8 partner dances listed small underneath (no "UCWDC" label, which means nothing to a beginner).
+  - `marketplace-wedding.jpg`: "Wedding Dance Lessons" (searchable; was "Your First Dance"), over the formal-couple photo (`photo1`). Sub: "Custom choreography, built around your song." Styles: Waltz / Country / Swing / Slow Dance (concrete first-dance picks, not the abstract "Ballroom").
+  - `marketplace-image-nolanwayne.jpg`: general "Dance Lessons" catch-all, moved off the wedding photo onto a practice-couple shot (`photo5`) so it does not twin the wedding card.
+  - `marketplace-social.jpg`: "Social Dance Lessons" (sub: "Never too late to start, and a good way to get out"), over an older couple at sunset (`photo4`). Aims at the older / casual-social market Nolan says actually books, which none of the other cards pictured.
+  - `*-9x16.jpg` for all four: same art and copy, taller crop for IG/FB stories and reels. Stories are kept clean (no button); the CTA goes in the caption there.
+- **Dropped the "As seen on Dancing with the Stars Austin" line from the cards.** With no room for context a stranger reads it as the TV show and feels misled (it is the Center for Child Protection charity event). Replaced with proof that fits each market: country uses the real competition credential (1st Place, Advanced Two-Step Jack & Jill, captioned to the photo: Ask Me To Dance Wild West Comp, Cedar Park, TX); the rest use "10+ years teaching & competing." The DWTSA line stays on the website, where it can be explained. `CLAUDE.md` voice guide updated to reflect this split.
+- **"Book a FREE Introductory Lesson" button** added to the four square cards (gold pill, FREE emphasized). The price ($90) and any dated promo stay OFF the art so the images never expire; the deadline lives in the listing text.
+- **Typography unified with the site:** switched the cards from Cormorant Garamond to **Fraunces** (variable, ~500 weight) + Montserrat, matching the website's type system so the card-to-site handoff reads as one brand. The earlier Cormorant was an accidental default, not a choice.
+- **Layout discipline:** location appears once (top `NOLAN WAYNE · AUSTIN, TX` eyebrow), audience once (logistics line), credential once (footnote); deduped repeats as copy got layered in.
+- **`marketplace-listings.md` (new):** four paste-ready Marketplace listings (search-tuned titles + first-person descriptions in Nolan's voice), each opening with the dated "new student special: first lesson free, through [date]" line and closing with "Book a free introductory lesson now." Includes pricing guidance (set the $90 in the Marketplace price field, keep it off the art) and posting notes (separate listings, re-list weekly, square for Marketplace / 9:16 for stories).
+
 ## 2026-06-22
 
 ### NW monogram sharpness fix + header logo "frame-break" treatment
